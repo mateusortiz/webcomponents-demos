@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+
+  <title>Demo Polymer WebApp Responsive</title>
+
+  <!-- Polyfill -->
+  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+
+  <!-- Import's Elements -->
+  <link rel="import" href="elements.html">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="app.css">
+</head>
+<body fullbleed>
+
+  <template is="auto-binding" id="app">
+    <core-drawer-panel responsiveWidth="960px">
+
+      <core-header-panel drawer>
+        <core-toolbar>
+          <div>Menu</div>
+        </core-toolbar>
+        <core-menu selected="{{page}}" valueattr="label">
+          <paper-item noink label="Polymer">Polymer</paper-item>
+          <paper-item noink label="Web Components">Web Components</paper-item>
+          <paper-item noink label="App">App</paper-item>
+        </core-menu>
+      </core-header-panel>
+
+      <core-header-panel main>
+        <core-toolbar>
+          <paper-icon-button icon="menu" core-drawer-toggle></paper-icon-button>
+          <div>{{headline}}</div>
+        </core-toolbar>
+        <core-pages selected="{{page}}" valueattr="label" fit>
+          <section label="Polymer" layout horizontal center-center>
+            <div layout vertical center-center>
+              <h1>My Polymer App</h1>
+              <div class="logo">
+                <img class="img-responsive" src="images/polymer-logo.svg" alt="polymer logo">
+              </div>
+            </div>
+          </section>
+          <section label="Web Components" layout horizontal center-center>
+            <div layout vertical center-center>
+              <h1>The future it's pretty cool</h1>
+              <div class="logo">
+                <img class="img-responsive" src="images/wc-logo.svg" alt="Web Components logo">
+              </div>
+            </div>
+          </section>
+          <section label="App" layout horizontal center-center>
+            <div layout vertical center-center>
+              <h1>Learn more at <a href="http://polymer-project.org">Polymer-project.org</a></h1>
+            </div>
+          </section>
+        </core-pages>
+      </core-header-panel>
+
+    </core-drawer-panel>
+  </template>
+
+  <script>
+  var app = document.getElementById('app');
+  app.addEventListener('template-bound', function() {
+    app.headline = 'Polymer App';
+    app.page = 'Polymer';
+  });
+  </script>
+
+</body>
+</html>
