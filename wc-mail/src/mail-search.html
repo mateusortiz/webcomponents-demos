@@ -1,0 +1,57 @@
+<polymer-element name="mail-search">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .mail-search paper-icon-button {
+        vertical-align: middle;
+      }
+      .mail-search input[type="text"] {
+        border: 0;
+        padding: 20px 0;
+        visibility: visible;
+        margin: 0;
+        display: inline-block;
+        width: 0;
+        vertical-align: middle;
+        background-color: transparent;
+        color: #fff;
+        width: 0;
+        font-size: 20px;
+        outline: none;
+      }
+      .mail-search.on-search {
+        text-align: left;
+      }
+      .mail-search.on-search input[type="text"] {
+        padding: 20px 5px;
+        width: 65%;
+      }
+    </style>
+    <div class="mail-search {{ displaySearch ? 'on-search' : '' }}">
+      <paper-icon-button icon="search" on-tap="{{onDiplaySearch}}"></paper-icon-button>
+      <input type="text" id="s" on-blur="{{onDisplaySearch}}" on-keyup="{{setFilter}}">
+    </div>
+  </template>
+  <script>
+      Polymer({
+        publish: {
+          displaySearch: {value: false, reflect: true}
+        },
+        setFilter: function() {
+          document.querySelector('mail-list').setAttribute('filter', this.$.s.value);
+        },
+        onDisplaySearch: function(e, detail, sender) {
+          this.displaySearch = !this.displaySearch;
+          e.stopPropagation();
+        },
+        displaySearchChanged: function() {
+          if (this.displaySearch) {
+            this.$.s.value = "";
+            this.$.s.focus();
+          }
+        }
+      });
+  </script>
+</polymer-element>

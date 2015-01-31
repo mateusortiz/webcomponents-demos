@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WC Mail</title>
+	<!-- WebComponentsjs -->
+	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+	<!-- Custom Element's -->
+	<link rel="import" href="elements.html">
+	<!-- Stylesheet -->
+	<link rel="stylesheet" href="src/css/app.css">
+</head>
+<body>
+
+	<paper-spinner active></paper-spinner>
+
+	<core-scaffold mode="waterfall-tall" hide>
+		<core-header-panel navigation flex mode="semead" condenses="true">
+			<figure class="profile-photo">
+				<img src="http://www.gravatar.com/avatar/c626989c7ee2bc0734048da9f336d0a3.png" alt="Profile">
+			</figure>
+			<div class="profile-infos">
+				<span>Mateus Ortiz</span>
+				<span>mteusortiz@gmail.com</span>
+			</div>
+			<core-menu selected="0" excludedlocalnames="div" on-core-select="{{menuSelect">
+				<paper-item class="sidebar-item">
+					<core-icon icon="inbox"></core-icon>Inbox
+				</paper-item>
+				<paper-item class="sidebar-item">
+					<core-icon icon="send"></core-icon> Sent
+				</paper-item>
+				<div class="sidebar-sep">
+					Labels
+				</div>
+				<paper-item class="sidebar-item">
+					<core-icon icon="report"></core-icon> Spam
+				</paper-item>
+				<paper-item class="sidebar-item">
+					<core-icon icon="delete"></core-icon> Trash
+				</paper-item>
+			</core-menu>
+		</core-header-panel>
+
+		<mail-search tool flex></mail-search>
+		<mail-list></mail-list>
+
+		<paper-fab icon="add" class="new-mail"></paper-fab>
+
+	</core-scaffold>
+
+	<script src="src/js/app.js"></script>
+</body>
+</html>
