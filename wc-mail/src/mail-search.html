@@ -30,8 +30,8 @@
       }
     </style>
     <div class="mail-search {{ displaySearch ? 'on-search' : '' }}">
-      <paper-icon-button icon="search" on-tap="{{onDiplaySearch}}"></paper-icon-button>
-      <input type="text" id="s" on-blur="{{onDisplaySearch}}" on-keyup="{{setFilter}}">
+      <paper-icon-button icon="search" on-tap={{onDisplaySearch}}></paper-icon-button>
+      <input type="text" id="s" on-blur={{onDisplaySearch}} on-keyup={{setFilter}}>
     </div>
   </template>
   <script>
