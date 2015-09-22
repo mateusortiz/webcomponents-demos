@@ -8,10 +8,14 @@
 
 `$ bower install`
 
+## Contributing
 
-Copyright 2015, All rights reserved.
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -m 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
 
-Code licensed under the:
-[MIT license](http://mateusortiz.mit-license.org)
+## License
 
-@author Mateus Ortiz <mteusortiz@gmail.com>
+[MIT License](http://mateusortiz.mit-license.org/) © Mateus Ortiz
